@@ -12,7 +12,7 @@ import { ServerConnection } from '@jupyterlab/services';
 import {
   nullTranslator,
   ITranslator,
-  TranslationBundle
+  TranslationBundle,
 } from '@jupyterlab/translation';
 
 import { Poll } from '@lumino/polling';
@@ -37,9 +37,9 @@ export class MemoryUsage extends VDomRenderer<MemoryUsage.Model> {
   /**
    * Render the memory usage status item.
    */
-  render() {
+  render(): JSX.Element {
     if (!this.model) {
-      return null;
+      return <div></div>;
     }
     let text: string;
     if (this.model.memoryLimit === null) {
@@ -94,11 +94,11 @@ export namespace MemoryUsage {
         factory: () => Private.factory(),
         frequency: {
           interval: options.refreshRate,
-          backoff: true
+          backoff: true,
         },
-        name: '@jupyterlab/statusbar:MemoryUsage#metrics'
+        name: '@jupyterlab/statusbar:MemoryUsage#metrics',
       });
-      this._poll.ticked.connect(poll => {
+      this._poll.ticked.connect((poll) => {
         const { payload, phase } = poll.state;
         if (phase === 'resolved') {
           this._updateMetricsValues(payload);
@@ -210,12 +210,12 @@ export namespace MemoryUsage {
       }
     }
 
-    private _currentMemory: number = 0;
+    private _currentMemory = 0;
     private _memoryLimit: number | null = null;
-    private _metricsAvailable: boolean = false;
+    private _metricsAvailable = false;
     private _poll: Poll<Private.IMetricRequestResult | null>;
     private _units: MemoryUnit = 'B';
-    private _warn: boolean = false;
+    private _warn = false;
   }
 
   /**
@@ -259,7 +259,7 @@ namespace Private {
     MB: 1048576,
     GB: 1073741824,
     TB: 1099511627776,
-    PB: 1125899906842624
+    PB: 1125899906842624,
   };
 
   /**

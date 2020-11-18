@@ -10,10 +10,10 @@ import { style } from 'typestyle/lib';
 
 export const baseText: NestedCSSProperties = {
   fontSize: vars.fontSize,
-  fontFamily: vars.fontFamily
+  fontFamily: vars.fontFamily,
 };
 
 export const nbresuse = style(baseText, {
   backgroundColor: '#FFD2D2',
-  color: '#D8000C'
+  color: '#D8000C',
 });

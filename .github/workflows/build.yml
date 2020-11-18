@@ -38,4 +38,4 @@ jobs:
       run: |
         cd labextension/
         jlpm
-        jlpm run eslint:check
+        jlpm run lint:check

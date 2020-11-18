@@ -1,15 +1,11 @@
 import {
   JupyterFrontEnd,
-  JupyterFrontEndPlugin
+  JupyterFrontEndPlugin,
 } from '@jupyterlab/application';
 
-import {
-  IStatusBar,
-} from '@jupyterlab/statusbar';
+import { IStatusBar } from '@jupyterlab/statusbar';
 
-import {
-  ITranslator
-} from '@jupyterlab/translation';
+import { ITranslator } from '@jupyterlab/translation';
 
 import { MemoryUsage } from './memoryUsage';
 
@@ -27,17 +23,14 @@ const extension: JupyterFrontEndPlugin<void> = {
   ) => {
     const item = new MemoryUsage(translator);
 
-    statusBar.registerStatusItem(
-      'nbresuse:memory-usage-status',
-      {
-        item,
-        align: 'left',
-        rank: 2,
-        isActive: () => item.model!.metricsAvailable,
-        activeStateChanged: item.model!.stateChanged
-      }
-    );
-  }
+    statusBar.registerStatusItem('nbresuse:memory-usage-status', {
+      item,
+      align: 'left',
+      rank: 2,
+      isActive: () => item.model.metricsAvailable,
+      activeStateChanged: item.model.stateChanged,
+    });
+  },
 };
 
 export default extension;
