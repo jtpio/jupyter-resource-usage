@@ -31,3 +31,12 @@ var/
 .vscode
 *.code-workspace
 .history
+
+# Labextension
+*.bundle.*
+lib/
+node_modules/
+*.egg-info/
+.ipynb_checkpoints
+*.tsbuildinfo
+nbresuse/labextension
