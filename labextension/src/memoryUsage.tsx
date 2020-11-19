@@ -1,11 +1,11 @@
 // Copyright (c) Jupyter Development Team.
 // Distributed under the terms of the Modified BSD License.
 
-import React from 'react';
-
 import { VDomModel, VDomRenderer } from '@jupyterlab/apputils';
 
 import { URLExt } from '@jupyterlab/coreutils';
+
+import { TextItem } from '@jupyterlab/statusbar';
 
 import { ServerConnection } from '@jupyterlab/services';
 
@@ -17,7 +17,7 @@ import {
 
 import { Poll } from '@lumino/polling';
 
-import { TextItem } from '@jupyterlab/statusbar';
+import React from 'react';
 
 import { nbresuse } from './text';
 
@@ -304,7 +304,10 @@ namespace Private {
   /**
    * The url endpoint for making requests to the server.
    */
-  const METRIC_URL = URLExt.join(SERVER_CONNECTION_SETTINGS.baseUrl, 'api/metrics/v1');
+  const METRIC_URL = URLExt.join(
+    SERVER_CONNECTION_SETTINGS.baseUrl,
+    'api/metrics/v1'
+  );
 
   /**
    * The shape of a response from the metrics server extension.
