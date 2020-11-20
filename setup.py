@@ -14,7 +14,7 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 # The name of the project
 name = "nbresuse"
 
-src_path = os.path.join(HERE, "labextension")
+src_path = os.path.join(HERE, "packages", "labextension")
 lab_path = os.path.join(HERE, name, "labextension")
 
 # Representative files that should exist after a successful build

@@ -72,6 +72,6 @@
   ],
   "jupyterlab": {
     "extension": true,
-    "outputDir": "../nbresuse/labextension"
+    "outputDir": "../../nbresuse/labextension"
   }
 }
