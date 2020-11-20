@@ -36,6 +36,6 @@ jobs:
 
     - name: Lint
       run: |
-        cd labextension/
+        cd packages/labextension/
         jlpm
         jlpm run lint:check
