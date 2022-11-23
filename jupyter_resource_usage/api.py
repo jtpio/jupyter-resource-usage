@@ -30,7 +30,8 @@ class ApiHandler(APIHandler):
         rss = 0
         for p in all_processes:
             try:
-                rss += p.memory_info().rss
+                mem_info_type = "pss" if hasattr(p.memory_full_info(), "pss") else "rss"
+                rss += getattr(p.memory_full_info(), mem_info_type)
             except (psutil.NoSuchProcess, psutil.AccessDenied) as e:
                 pass
 
